@@ -18,6 +18,14 @@ func main() {
 
 	var command int
 	fmt.Scan(&command)
-	fmt.Println("The address of my command variable is", &command)
-	fmt.Println("The chosen command was", command)
+
+	if command == 1 {
+		fmt.Println("Monitoring...")
+	} else if command == 2 {
+		fmt.Println("Showing Logs...")
+	} else if command == 0 {
+		fmt.Println("Exiting program!")
+	} else {
+		fmt.Println("I don't know this command!")
+	}
 }
