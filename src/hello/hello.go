@@ -4,9 +4,20 @@ import "fmt"
 
 func main() {
 	name := "Luan"
-	age := 22
-	version := 1.2
+	version := 2.0
 
-	fmt.Println("Hello, mr.", name, "your age is", age)
-	fmt.Println("This program is on version", version)
+	fmt.Println("Hello, mr.", name)
+	fmt.Println("-----------------------")
+
+	fmt.Println("1 - Start Monitoring")
+	fmt.Println("2 - Show Logs")
+	fmt.Println("0 - Exit Program")
+
+	fmt.Println("-----------------------")
+	fmt.Println("Version:", version)
+
+	var command int
+	fmt.Scan(&command)
+	fmt.Println("The address of my command variable is", &command)
+	fmt.Println("The chosen command was", command)
 }
