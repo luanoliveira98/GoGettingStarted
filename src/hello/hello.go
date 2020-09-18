@@ -3,9 +3,10 @@ package main
 import "fmt"
 
 func main() {
-	var name string = "Luan"
-	var version float32 = 1.1
+	name := "Luan"
+	age := 22
+	version := 1.2
 
-	fmt.Println("Hello, mr.", name)
+	fmt.Println("Hello, mr.", name, "your age is", age)
 	fmt.Println("This program is on version", version)
 }
