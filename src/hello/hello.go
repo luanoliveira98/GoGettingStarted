@@ -19,13 +19,14 @@ func main() {
 	var command int
 	fmt.Scan(&command)
 
-	if command == 1 {
+	switch command {
+	case 1:
 		fmt.Println("Monitoring...")
-	} else if command == 2 {
+	case 2:
 		fmt.Println("Showing Logs...")
-	} else if command == 0 {
+	case 0:
 		fmt.Println("Exiting program!")
-	} else {
+	default:
 		fmt.Println("I don't know this command!")
 	}
 }
