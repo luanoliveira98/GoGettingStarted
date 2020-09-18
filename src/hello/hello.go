@@ -1,23 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
-	name := "Luan"
-	version := 2.0
 
-	fmt.Println("Hello, mr.", name)
-	fmt.Println("-----------------------")
-
-	fmt.Println("1 - Start Monitoring")
-	fmt.Println("2 - Show Logs")
-	fmt.Println("0 - Exit Program")
-
-	fmt.Println("-----------------------")
-	fmt.Println("Version:", version)
-
-	var command int
-	fmt.Scan(&command)
+	showIntroduction()
+	showMenu()
+	command := getCommand()
 
 	switch command {
 	case 1:
@@ -26,7 +18,31 @@ func main() {
 		fmt.Println("Showing Logs...")
 	case 0:
 		fmt.Println("Exiting program!")
+		os.Exit(0)
 	default:
 		fmt.Println("I don't know this command!")
+		os.Exit(-1)
 	}
+}
+
+func showIntroduction() {
+
+	name := "Luan"
+	version := 2.3
+
+	fmt.Println("Hello, mr.", name)
+	fmt.Println("Version:", version)
+}
+
+func showMenu() {
+	fmt.Println("1 - Start Monitoring")
+	fmt.Println("2 - Show Logs")
+	fmt.Println("0 - Exit Program")
+}
+
+func getCommand() int {
+	var command int
+	fmt.Scan(&command)
+
+	return command
 }
