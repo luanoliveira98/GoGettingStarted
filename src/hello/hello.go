@@ -4,13 +4,15 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"reflect"
 )
 
 func main() {
 
-	showIntroduction()
+	showNames()
+	// showIntroduction()
 	for {
-		showMenu()
+		// showMenu()
 
 		command := getCommand()
 		switch command {
@@ -75,4 +77,18 @@ func startMoniroting() {
 		fmt.Println("Site:", site, "is in trouble. Status Code:", resp.StatusCode)
 	}
 
+}
+
+func showNames() {
+	names := []string{"Luan", "Estefâne", "Fabrício"}
+	fmt.Println(names)
+	fmt.Println(reflect.TypeOf(names))
+	fmt.Println("There are", len(names), "itens in my slice!")
+	fmt.Println("There are capacity for", cap(names), "itens in my slice!")
+
+	names = append(names, "Aparecida")
+	fmt.Println(names)
+	fmt.Println(reflect.TypeOf(names))
+	fmt.Println("There are", len(names), "itens in my slice!")
+	fmt.Println("There are capacity for", cap(names), "itens in my slice!")
 }
