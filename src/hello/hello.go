@@ -4,15 +4,13 @@ import (
 	"fmt"
 	"net/http"
 	"os"
-	"reflect"
 )
 
 func main() {
 
-	showNames()
-	// showIntroduction()
+	showIntroduction()
 	for {
-		// showMenu()
+		showMenu()
 
 		command := getCommand()
 		switch command {
@@ -61,34 +59,16 @@ func getCommand() int {
 func startMoniroting() {
 
 	fmt.Println("Monitoring...")
-	var sites [4]string
-	sites[0] = "https://random-status-code.herokuapp.com/"
-	sites[1] = "https://www.alura.com.br"
-	sites[2] = "https://www.caelum.com.br"
+	sites := []string{"https://random-status-code.herokuapp.com/", "https://www.alura.com.br", "https://www.caelum.com.br"}
 
-	fmt.Println(sites)
+	for _, site := range sites {
+		resp, _ := http.Get(site)
 
-	site := "https://random-status-code.herokuapp.com/"
-	resp, _ := http.Get(site)
-
-	if resp.StatusCode == 200 {
-		fmt.Println("Site:", site, "was successfully loaded!")
-	} else {
-		fmt.Println("Site:", site, "is in trouble. Status Code:", resp.StatusCode)
+		if resp.StatusCode == 200 {
+			fmt.Println("Site:", site, "was successfully loaded!")
+		} else {
+			fmt.Println("Site:", site, "is in trouble. Status Code:", resp.StatusCode)
+		}
 	}
 
-}
-
-func showNames() {
-	names := []string{"Luan", "Estefâne", "Fabrício"}
-	fmt.Println(names)
-	fmt.Println(reflect.TypeOf(names))
-	fmt.Println("There are", len(names), "itens in my slice!")
-	fmt.Println("There are capacity for", cap(names), "itens in my slice!")
-
-	names = append(names, "Aparecida")
-	fmt.Println(names)
-	fmt.Println(reflect.TypeOf(names))
-	fmt.Println("There are", len(names), "itens in my slice!")
-	fmt.Println("There are capacity for", cap(names), "itens in my slice!")
 }
