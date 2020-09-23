@@ -10,3 +10,15 @@
 23/09/2020 10:41:00 - https://random-status-code.herokuapp.com/ - online: false
 23/09/2020 10:41:01 - https://www.caelum.com.br - online: true
 23/09/2020 10:41:01 - https://www.casadocodigo.com.br - online: true
+23/09/2020 10:45:03 - https://www.alura.com.br - online: true
+23/09/2020 10:45:04 - https://random-status-code.herokuapp.com/ - online: true
+23/09/2020 10:45:05 - https://www.caelum.com.br - online: true
+23/09/2020 10:45:05 - https://www.casadocodigo.com.br - online: true
+23/09/2020 10:45:11 - https://www.alura.com.br - online: true
+23/09/2020 10:45:11 - https://random-status-code.herokuapp.com/ - online: true
+23/09/2020 10:45:12 - https://www.caelum.com.br - online: true
+23/09/2020 10:45:12 - https://www.casadocodigo.com.br - online: true
+23/09/2020 10:45:18 - https://www.alura.com.br - online: true
+23/09/2020 10:45:18 - https://random-status-code.herokuapp.com/ - online: true
+23/09/2020 10:45:19 - https://www.caelum.com.br - online: true
+23/09/2020 10:45:19 - https://www.casadocodigo.com.br - online: true

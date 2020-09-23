@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"net/http"
 	"os"
 	"strconv"
@@ -25,7 +26,7 @@ func main() {
 		case 1:
 			startMoniroting()
 		case 2:
-			fmt.Println("Showing Logs...")
+			getLogs()
 		case 0:
 			fmt.Println("Exiting program!")
 			os.Exit(0)
@@ -128,7 +129,6 @@ func testSite(site string) {
 func setLog(site string, status bool) {
 
 	archive, err := os.OpenFile("log.txt", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
-
 	if err != nil {
 		fmt.Println("An error has occurred", err)
 	}
@@ -136,4 +136,14 @@ func setLog(site string, status bool) {
 	archive.WriteString(time.Now().Format("02/01/2006 15:04:05") + " - " + site + " - online: " + strconv.FormatBool(status) + "\n")
 
 	archive.Close()
+}
+
+func getLogs() {
+
+	archive, err := ioutil.ReadFile("log.txt")
+	if err != nil {
+		fmt.Println("An error has occurred", err)
+	}
+
+	fmt.Println(string(archive))
 }
