@@ -39,7 +39,7 @@ func main() {
 func showIntroduction() {
 
 	name := "Luan"
-	version := 2.3
+	version := 5.0
 
 	fmt.Println("Hello, mr.", name)
 	fmt.Println("Version:", version)
@@ -116,8 +116,21 @@ func testSite(site string) {
 
 	if resp.StatusCode == 200 {
 		fmt.Println("Site:", site, "was successfully loaded!")
+		setLog(site, true)
 	} else {
 		fmt.Println("Site:", site, "is in trouble. Status Code:", resp.StatusCode)
+		setLog(site, false)
 	}
 
+}
+
+func setLog(site string, status bool) {
+
+	archive, err := os.OpenFile("log.txt", os.O_RDWR|os.O_CREATE, 0666)
+
+	if err != nil {
+		fmt.Println("An error has occurred", err)
+	}
+
+	fmt.Println(archive)
 }
