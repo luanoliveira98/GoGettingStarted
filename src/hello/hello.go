@@ -6,6 +6,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -126,11 +127,13 @@ func testSite(site string) {
 
 func setLog(site string, status bool) {
 
-	archive, err := os.OpenFile("log.txt", os.O_RDWR|os.O_CREATE, 0666)
+	archive, err := os.OpenFile("log.txt", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 
 	if err != nil {
 		fmt.Println("An error has occurred", err)
 	}
 
-	fmt.Println(archive)
+	archive.WriteString(site + " - online: " + strconv.FormatBool(status) + "\n")
+
+	archive.Close()
 }
