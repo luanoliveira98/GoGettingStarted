@@ -64,7 +64,8 @@ func startMoniroting() {
 
 	fmt.Println()
 	fmt.Println("Monitoring...")
-	sites := []string{"https://random-status-code.herokuapp.com/", "https://www.alura.com.br", "https://www.caelum.com.br"}
+	// sites := []string{"https://random-status-code.herokuapp.com/", "https://www.alura.com.br", "https://www.caelum.com.br"}
+	sites := getSitesArchive()
 
 	for i := 0; i < monitorings; i++ {
 		for _, site := range sites {
@@ -76,6 +77,15 @@ func startMoniroting() {
 
 	fmt.Println()
 
+}
+
+func getSitesArchive() []string {
+	var sites []string
+
+	archive, _ := os.Open("sites.txt")
+	fmt.println(archive)
+
+	return sites
 }
 
 func testSite(site string) {
