@@ -82,7 +82,11 @@ func startMoniroting() {
 func getSitesArchive() []string {
 	var sites []string
 
-	archive, _ := os.Open("sites.txt")
+	archive, err := os.Open("sites.txt")
+
+	if err != nil {
+		fmt.Println("An error has occurred", err)
+	}
 	fmt.println(archive)
 
 	return sites
@@ -90,7 +94,11 @@ func getSitesArchive() []string {
 
 func testSite(site string) {
 
-	resp, _ := http.Get(site)
+	resp, err := http.Get(site)
+
+	if err != nil {
+		fmt.Println("An error has occurred", err)
+	}
 
 	if resp.StatusCode == 200 {
 		fmt.Println("Site:", site, "was successfully loaded!")
