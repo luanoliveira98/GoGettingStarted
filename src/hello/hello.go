@@ -3,8 +3,10 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"io"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 )
 
@@ -65,7 +67,6 @@ func startMoniroting() {
 
 	fmt.Println()
 	fmt.Println("Monitoring...")
-	// sites := []string{"https://random-status-code.herokuapp.com/", "https://www.alura.com.br", "https://www.caelum.com.br"}
 	sites := getSitesArchive()
 
 	for i := 0; i < monitorings; i++ {
@@ -89,10 +90,18 @@ func getSitesArchive() []string {
 	}
 
 	reader := bufio.NewReader(archive)
-	row, err := reader.ReadString('\n')
-	if err != nil {
-		fmt.Println("An error has occurred", err)
+	for {
+		row, err := reader.ReadString('\n')
+		row = strings.TrimSpace(row)
+
+		sites = append(sites, row)
+
+		if err == io.EOF {
+			break
+		}
 	}
+
+	archive.Close()
 
 	return sites
 }
